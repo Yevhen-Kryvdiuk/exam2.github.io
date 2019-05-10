@@ -1,0 +1,90 @@
+$cart-width: 200px;
+$rank-width: 32px;
+$font-family: Arial;
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.name {
+  font-family: $font-family;
+  font-size: 20px;
+  line-height: 23px;
+  color: #2F4F4F;
+}
+
+.rank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 18px;
+  color: #8B0000;
+  width: $rank-width;
+  height: 32px;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  left: $cart-width - $rank-width*1.5;
+  bottom:  $cart-width/2 + $rank-width*0.5;
+
+}
+.extra {
+  font-family: $font-family;
+  visibility: hidden;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+}
+.people {
+  display: grid;
+  grid-gap: 30px;
+  padding: 20px;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, $cart-width);
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.details {
+  text-align: center;
+}
+
+.photo {
+  text-align: center;
+  height: 200px;
+}
+
+
+.photo img{
+  width: $cart-width;
+  height: 200px;
+  border-radius: 200px;
+}
+
+@media (min-width: 500px) {
+  .people {
+    grid-template-columns: repeat(2, minmax($cart-width, auto)) ;
+  }
+}
+
+@media (min-width: 1000px) {
+  .people {
+    grid-template-columns: repeat(3, minmax($cart-width, auto)) ;
+  }
+}
+
+.person:hover {
+  background: #EEEEEE;
+  border-radius: 10px;
+}
+
+
+.person:hover .extra{
+  visibility: visible;
+}
+
